@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.column {
+  @apply flex flex-col items-start;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+li {
+  list-style: circle;
+  list-style-position: inside;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
