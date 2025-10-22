@@ -11,12 +11,13 @@ export const metadata = {
 const Home = async () => {
 
   const pageData = await getHomePage()
+  console.log(pageData)
 
   return (
     <div>
       <Hero data={pageData?.data} />
-      <Gallery pageData={pageData?.data?.images ?? exampleData?.images} />
-      <GalleryMobile pageData={pageData?.data?.images ?? exampleData?.images} />
+      <Gallery pageData={pageData?.data} />
+      <GalleryMobile pageData={pageData?.data} />
     </div>
   )
 }

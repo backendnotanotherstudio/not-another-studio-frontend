@@ -23,3 +23,36 @@ li {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.blockRenderer h1,
+.blockRenderer h2,
+.blockRenderer h3 {
+  color: #fff;
+  font-family: Fraunces;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 55px; /* 137.5% */
+  margin-bottom: 18px;
+}
+
+.blockRenderer h4,
+.blockRenderer h5,
+.blockRenderer h6 {
+  color: #fff;
+  font-family: Fraunces;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px; /* 145.833% */
+  margin-bottom: 9px;
+}
+
+.blockRenderer p {
+  color: #fff;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px; /* 166.667% */
+}

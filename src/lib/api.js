@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const REVALIDATE_SECONDS = 60
-// export const baseURL = "http://localhost:1337/api";
-export const baseURL = "https://not-another-studio-backend.onrender.com/api";
+export const baseURL = "http://localhost:1337/api";
+// export const baseURL = "https://not-another-studio-backend.onrender.com/api";
 
 
 const axiosInstance = axios.create({
@@ -39,6 +39,14 @@ export async function getProduct(slug) {
   );
 }
 
+export async function getProject(slug) {
+  const encodedSlug = encodeURIComponent(slug);
+  return deliverPromise(
+    `/projects?filters[slug][$eq]=${encodedSlug}&pLevel=3`,
+    true
+  );
+}
+
 export async function getProducts(query) {
   return deliverPromise(`/products?populate=*${query}`);
 }
@@ -56,7 +64,7 @@ export const getAboutPage = async () => {
 };
 
 export const getHomePage = async () => {
-  const res = await fetch(baseURL + "/home-page?populate=*", {
+  const res = await fetch(baseURL + "/home-page?pLevel=3", {
     next: { revalidate: REVALIDATE_SECONDS },
   });
 
