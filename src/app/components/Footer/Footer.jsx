@@ -80,7 +80,7 @@ const Footer = ({ infiniteBanner = false }) => {
           </a>
           <div className=" flex w-full md:flex-row gap-[11px] flex-col justify-between ">
             <a
-              href="tel:+971585686729"
+              href="https://www.instagram.com/n0tan0therstudi0/"
               className="w-48 h-4 justify-start text-white text-sm font-normal font-['Inter'] leading-none"
             >
               Instagram

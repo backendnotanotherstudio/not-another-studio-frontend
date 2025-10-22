@@ -38,6 +38,11 @@ const Shop = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!pageData?.data) {
+        const temppageData = await getShopPage();
+        setPageData(temppageData?.data);
+      }
+
       let categoriesQuery = "";
       selectedCategories.forEach((item) => {
         categoriesQuery += `&filters[category][categoryName][$eq]=${item}`;
@@ -49,9 +54,6 @@ const Shop = () => {
       const query = `${categoriesQuery}${colorQuery}`;
       const filteredProducts = await getProducts(query);
       setProducts(filteredProducts);
-
-      const temppageData = await getShopPage();
-      setPageData(temppageData?.data);
     };
     fetchData();
   }, [selectedCategories, selectedColor]);

@@ -1,6 +1,7 @@
 "use client";
 import { baseURL } from "@/lib/api";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
 
 const ContactSection = ({pageData}) => {
@@ -10,6 +11,7 @@ const ContactSection = ({pageData}) => {
     number: "",
     message: "",
   });
+  const router = useRouter()
 
   async function attemptSend() {
     const emptyFields = [];
@@ -27,6 +29,8 @@ const ContactSection = ({pageData}) => {
     try {
       await axios.post(`${baseURL}/messages`, { data: values.current });
       window.alert("message successfully sent!");
+      router.push('/')
+
     } catch (err) {
       console.warn("failed to deliver message", err);
       window.alert(
