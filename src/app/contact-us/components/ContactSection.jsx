@@ -3,7 +3,7 @@ import { baseURL } from "@/lib/api";
 import axios from "axios";
 import React, { useRef } from "react";
 
-const ContactSection = () => {
+const ContactSection = ({pageData}) => {
   const values = useRef({
     name: "",
     email: "",
@@ -38,7 +38,7 @@ const ContactSection = () => {
   return (
     <div className=" flex flex-col items-center border-t border-[#FFFFFF4D] ">
       <div className="max-w-[1171px] mt-[50px] md:mt-[142px] text-center justify-start text-white md:text-8xl text-4xl font-light font-['Fraunces'] leading-[50px] md:leading-[100px]">
-        Lorem ipsum dolor platea amet volutpat neque quisque.
+        {pageData?.contactFormTitle}
       </div>
       <div className=" max-w-[828px] mt-[33px] mx-[10px] border border-[#FFFFFF4D] ">
         <input

@@ -2,7 +2,7 @@ import Button from "@/app/components/Button/Button";
 import Image from "next/image";
 import React from "react";
 
-const Hero = () => {
+const Hero = ({data}) => {
   return (
     <div className=" relative w-lvw max-h-[2000px] h-lvh flex items-center flex-col ">
       <Image
@@ -14,8 +14,7 @@ const Hero = () => {
       />
       <div className=" flex gap-[24px] flex-col items-start justify-end px-[20px] md:px-[57px] py-[126px] absolute top-0 left-0 bg-[#00000050] w-full h-full ">
         <div className="max-w-96 justify-start text-white md:text-3xl text-xl font-light font-['Fraunces']">
-          Lorem ipsum dolor sit amet consectetur. Porttitor et platea amet
-          volutpat neque sit amet etiam nulla tempus arcu quisque.
+          {data?.heroDesc}
         </div>
         <Button href='/contact-us' >CONTACT US</Button>
       </div>

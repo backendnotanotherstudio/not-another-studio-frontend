@@ -2,8 +2,11 @@ import Link from "next/link";
 import React from "react";
 import Button from "../components/Button/Button";
 import ContactSection from "./components/ContactSection";
+import { getContactPage } from "@/lib/api";
 
-const Contact = () => {
+const Contact = async () => {
+  const pageData = await getContactPage();
+
   return (
     <div>
       <div className=" mt-[70px] md:mt-[104px] h-[450px] md:h-[920px] relative ">
@@ -26,7 +29,7 @@ const Contact = () => {
             info@notanotherstudio.com
           </Link>
           <a
-            href="/instagram"
+            href="https://www.instagram.com/n0tan0therstudi0/"
             className=" rounded-full border border-[#FFFFFF99] p-[18px] absolute bottom-[74px] "
           >
             <svg
@@ -69,15 +72,23 @@ const Contact = () => {
             <div className="w-80 h-11 justify-start text-white text-2xl font-light font-['Fraunces'] leading-10">
               Dubai, United Arab Emirates
             </div>
-            <Button className=' z-[100] ' >SEE ON MAP</Button>
+            <Button
+              href="https://maps.app.goo.gl/pvC7sZdRqafTHgnn9"
+              className=" z-[100] "
+            >
+              SEE ON MAP
+            </Button>
           </div>
         </div>
       </div>
-      <div className=' relative md:hidden flex items-end h-[450px] px-[25px] py-[50px] z-[1] ' >
-        <Button className=' z-50 ' >SEE ON MAP</Button>
-        <img src="/images/dubai.jpg" className=" absolute top-0 left-0 -z-[1] max-h-[450px] h-full object-cover w-full" />
+      <div className=" relative md:hidden flex items-end h-[450px] px-[25px] py-[50px] z-[1] ">
+        <Button className=" z-50 ">SEE ON MAP</Button>
+        <img
+          src="/images/dubai.jpg"
+          className=" absolute top-0 left-0 -z-[1] max-h-[450px] h-full object-cover w-full"
+        />
       </div>
-      <ContactSection />
+      <ContactSection pageData={pageData?.data} />
     </div>
   );
 };

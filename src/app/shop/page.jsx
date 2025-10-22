@@ -1,6 +1,6 @@
 "use client";
 
-import { getCategories, getProducts } from "@/lib/api";
+import { getCategories, getProducts, getShopPage } from "@/lib/api";
 import React, { useEffect, useState } from "react";
 import ProductPreview from "../components/ProductPreview/ProductPreview";
 import ColorOptions from "./components/ColorOptions";
@@ -12,7 +12,7 @@ const Shop = () => {
   const [colors, setColors] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const products = await getProducts('');
+      const products = await getProducts("");
       const categories = await getCategories();
 
       //extracts all the colors available from the products
@@ -32,8 +32,9 @@ const Shop = () => {
     fetchData();
   }, []);
 
-  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedColor, setSelectedColor] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [pageData, setPageData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,13 +42,16 @@ const Shop = () => {
       selectedCategories.forEach((item) => {
         categoriesQuery += `&filters[category][categoryName][$eq]=${item}`;
       });
-      let colorQuery = ''
-      if(selectedColor !== '') {
-        colorQuery = `&filters[colorOptions][name][$eq]=${selectedColor}`
+      let colorQuery = "";
+      if (selectedColor !== "") {
+        colorQuery = `&filters[colorOptions][name][$eq]=${selectedColor}`;
       }
       const query = `${categoriesQuery}${colorQuery}`;
-      const filteredProducts = await getProducts(query)
-      setProducts(filteredProducts)
+      const filteredProducts = await getProducts(query);
+      setProducts(filteredProducts);
+
+      const temppageData = await getShopPage();
+      setPageData(temppageData?.data);
     };
     fetchData();
   }, [selectedCategories, selectedColor]);
@@ -55,7 +59,7 @@ const Shop = () => {
   return (
     <div className=" pt-[104px] flex mb-[50px] flex-col items-end mx-[7%] ">
       <div className="max-w-[1171px] md:mt-[30px] mt-[0px] md:w-[75%] mb-0 md:mb-[60px] text-center justify-start text-white md:text-6xl text-4xl font-light font-['Fraunces']">
-        Lorem ipsum dolor platea amet volutpat neque quisque.
+        {pageData?.title}
       </div>
       <div className=" w-full flex md:flex-row flex-col ">
         <div className=" w-full md:mt-0 mt-[40px] mb-[50px] md:w-[25%] md:pr-[20px] ">

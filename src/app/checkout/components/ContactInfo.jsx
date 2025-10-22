@@ -34,10 +34,8 @@ const ContactInfo = () => {
   });
 
   const handleSubmit = async (values) => {
-    console.log("Form values:", values);
     const cart = fetchCart();
     const total = cart.reduce((a, b) => (a += b.price), 0);
-    console.log(total);
     try {
       await axios.post(`${baseURL}/orders`, {
         data: { ...values, products: cart, total },

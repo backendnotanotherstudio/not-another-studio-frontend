@@ -2,17 +2,21 @@ import React from 'react'
 import Hero from './components/Hero'
 import Gallery from './components/Gallery'
 import GalleryMobile from './components/GalleryMobile'
+import { getHomePage } from '@/lib/api'
 
 export const metadata = {
   title:'Not Another Studio'
 }
 
-const Home = () => {
+const Home = async () => {
+
+  const pageData = await getHomePage()
+
   return (
     <div>
-      <Hero/>
-      <Gallery pageData={exampleData.images} />
-      <GalleryMobile pageData={exampleData.images} />
+      <Hero data={pageData?.data} />
+      <Gallery pageData={pageData?.data?.images ?? exampleData?.images} />
+      <GalleryMobile pageData={pageData?.data?.images ?? exampleData?.images} />
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const REVALIDATE_SECONDS = 3600
-//export const baseURL = "http://localhost:1337/api";
-export const baseURL = "https://not-another-studio-back.onrender.com/api";
+const REVALIDATE_SECONDS = 60
+export const baseURL = "http://localhost:1337/api";
+// export const baseURL = "https://not-another-studio-back.onrender.com/api";
 
 
 const axiosInstance = axios.create({
@@ -49,6 +49,30 @@ export async function getCategories() {
 
 export const getAboutPage = async () => {
   const res = await fetch(baseURL + "/about-page?populate=*", {
+    next: { revalidate: REVALIDATE_SECONDS },
+  });
+
+  return await res.json();
+};
+
+export const getHomePage = async () => {
+  const res = await fetch(baseURL + "/home-page?populate=*", {
+    next: { revalidate: REVALIDATE_SECONDS },
+  });
+
+  return await res.json();
+};
+
+export const getShopPage = async () => {
+  const res = await fetch(baseURL + "/shop-page?populate=*", {
+    next: { revalidate: REVALIDATE_SECONDS },
+  });
+
+  return await res.json();
+};
+
+export const getContactPage = async () => {
+  const res = await fetch(baseURL + "/contact-page?populate=*", {
     next: { revalidate: REVALIDATE_SECONDS },
   });
 

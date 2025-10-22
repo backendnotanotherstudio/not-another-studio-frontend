@@ -39,7 +39,6 @@ const Client = ({ product }) => {
     router.push("/checkout");
   }
 
-  console.log(product);
 
   const [selectedColor, setSelectedColor] = useState(["none", -1]);
   const [gallery, setGallery] = useState(product.images);
@@ -64,7 +63,7 @@ const Client = ({ product }) => {
       </div>
       <div className=" w-[50%] border-l py-[50px] border-[#FFFFFF4D] ">
         <div className="w justify-start text-white mx-[50px] text-[40px] font-light font-['Fraunces'] leading-[55px]">
-          Lorem ipsum dolor sit amet
+          {product.name}
         </div>
         <div className=" my-[50px] justify-start text-white mx-[50px] text-4xl font-light font-['Fraunces'] leading-[55px]">
           د.إ {product.price}

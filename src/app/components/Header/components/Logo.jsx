@@ -23,7 +23,6 @@ const Logo = () => {
     }
 
     if (path === "/") {
-      console.log("at home", path);
 
       window.addEventListener("scroll", onScroll);
     }

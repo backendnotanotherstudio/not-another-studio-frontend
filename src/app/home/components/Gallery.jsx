@@ -9,16 +9,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = ({ pageData }) => {
-  const tl = useRef(
-    gsap.timeline({
+  const tl = useRef(null);
+  useGSAP(() => {
+    tl.current = gsap.timeline({
       scrollTrigger: {
         trigger: "#image",
         start: "center center",
       },
-    })
-  );
+    });
 
-  useGSAP(() => {
     tl.current.fromTo(
       "#image",
       {
@@ -32,7 +31,12 @@ const Gallery = ({ pageData }) => {
         duration: 0.75,
       }
     );
-  },[pageData]);
+
+    // Cleanup function
+    return () => {
+      tl.current?.kill(); // Kill the timeline and its ScrollTrigger
+    };
+  }, [pageData]);
 
   return (
     <div className=" my-[100px] hidden md:flex flex-col items-center overflow-hidden ">
@@ -40,7 +44,7 @@ const Gallery = ({ pageData }) => {
         <Image
           id="image"
           src={pageData[0].url}
-          className=" aspect-square "
+          className=" object-cover aspect-square "
           width={729}
           height={729}
           alt="image"
@@ -48,17 +52,17 @@ const Gallery = ({ pageData }) => {
         <Image
           id="image"
           src={pageData[1].url}
-          className=" w-[386px] relative top-[365px] h-[526px] "
+          className=" object-cover w-[386px] relative top-[365px] h-[526px] "
           width={386}
           height={526}
           alt="image"
         />
       </div>
-      <div className=" flex mx-[100px] mt-[186px] gap-[6%] items-start ">
+      <div className=" object-cover flex mx-[100px] mt-[186px] gap-[6%] items-start ">
         <Image
           id="image"
           src={pageData[2].url}
-          className=" w-[634px] h-[481px] "
+          className=" object-cover w-[634px] h-[481px] "
           width={634}
           height={481}
           alt="image"
@@ -66,27 +70,27 @@ const Gallery = ({ pageData }) => {
         <Image
           id="image"
           src={pageData[3].url}
-          className=" w-[511px] relative top-[143px] h-[554px] "
+          className=" object-cover w-[511px] relative top-[143px] h-[554px] "
           width={511}
           height={554}
           alt="image"
         />
       </div>
-      <div className=" flex mt-[330px] gap-[7%] items-start ">
+      <div className=" object-cover flex mt-[330px] gap-[7%] items-start ">
         <Image
           id="image"
           src={pageData[4].url}
-          className=" w-[1157px] h-[771px] "
+          className=" object-cover w-[1157px] h-[771px] "
           width={1157}
           height={771}
           alt="image"
         />
       </div>
-      <div className=" flex ml-[100px] mt-[154px] gap-[7%] items-start ">
+      <div className=" object-cover flex ml-[100px] mt-[154px] gap-[7%] items-start ">
         <Image
           id="image"
           src={pageData[5].url}
-          className=" w-[762px] h-[710px] "
+          className=" object-cover w-[762px] h-[710px] "
           width={762}
           height={710}
           alt="image"
@@ -94,7 +98,7 @@ const Gallery = ({ pageData }) => {
         <Image
           id="image"
           src={pageData[6].url}
-          className=" w-[467px] relative top-[154px] h-[382px] "
+          className=" object-cover w-[467px] relative top-[154px] h-[382px] "
           width={467}
           height={382}
           alt="image"
