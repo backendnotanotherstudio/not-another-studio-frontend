@@ -86,7 +86,7 @@ const Footer = ({ infiniteBanner = false }) => {
               Instagram
             </a>
             <a
-              href="tel:+971585686729"
+              href="https://maps.app.goo.gl/PzKZfVXq9i3YcPQp8"
               className="w-48 h-4 justify-start text-white text-sm font-normal font-['Inter'] leading-none"
             >
               Dubai, United Arab Emirates
