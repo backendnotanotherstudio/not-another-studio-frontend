@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const REVALIDATE_SECONDS = 60
-export const baseURL = "http://localhost:1337/api";
-// export const baseURL = "https://not-another-studio-backend.onrender.com/api";
+// export const baseURL = "http://localhost:1337/api";
+export const baseURL = "https://not-another-studio-backend.onrender.com/api";
 
 
 const axiosInstance = axios.create({
