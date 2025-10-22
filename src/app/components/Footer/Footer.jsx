@@ -47,12 +47,12 @@ const Footer = ({ infiniteBanner = false }) => {
         >
           About
         </Link>
-        <Link
+        {/* <Link
           href="/projects"
           className=" justify-start text-white md:text-5xl text-3xl font-light font-['Fraunces'] md:leading-[70px] leading-[50px]"
         >
           Projects
-        </Link>
+        </Link> */}
         <Link
           href="/shop"
           className=" justify-start text-white md:text-5xl text-3xl font-light font-['Fraunces'] md:leading-[70px] leading-[50px]"
