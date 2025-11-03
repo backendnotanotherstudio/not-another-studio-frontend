@@ -4,6 +4,10 @@
   @apply flex flex-col items-start;
 }
 
+@theme {
+  --breakpoint-md: 1000px;
+}
+
 * {
   box-sizing: border-box;
 }

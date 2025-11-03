@@ -35,13 +35,13 @@ const Logo = () => {
     <Image
       onClick={() => (!home && (path !== "/") ? router.push("/") : window.scrollTo({top:0,behavior:'smooth'}))}
       style={{
-        top: `${home ? 357 : 37.5}px`,
+        top: `${home ? `40vh` : `${37.5}px`}`,
         width: `${home ? "1310px" : "302px"}`,
         transitionDuration: `${home ? "200ms" : "400ms"}`,
       }}
       width={path === "/" ? 1310 : 302}
       height={path === "/" ? 126 : 29}
-      className=" absolute pointer-events-auto transition-[top,width] ease-in-out "
+      className=" px-[20px] absolute pointer-events-auto transition-[top,width] ease-in-out "
       alt="logo"
       src="/images/headerLogo.png"
     />

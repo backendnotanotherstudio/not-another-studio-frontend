@@ -42,7 +42,7 @@ const GalleryMobile = ({ pageData }) => {
   }
 
   return (
-    <div className=" flex flex-col px-[20px] overflow-hidden pb-[50px] mt-[50px] items-center md:hidden ">
+    <div className=" max-[1300px]:flex flex-col px-[20px] overflow-hidden pb-[50px] mt-[50px] items-center hidden ">
       <div className=" flex gap-[20px] ">
         <Image
           id="image"

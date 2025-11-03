@@ -4,7 +4,7 @@ import React from "react";
 
 const Hero = ({data}) => {
   return (
-    <div className=" relative w-lvw max-h-[2000px] h-lvh flex items-center flex-col ">
+    <div className=" relative w-lvw max-h-[2000px] h-lvh min-h-[800px] flex items-center flex-col ">
       <Image
         width={1920}
         height={1080}
@@ -12,8 +12,8 @@ const Hero = ({data}) => {
         alt="hero image"
         className=" object-cover w-full h-full "
       />
-      <div className=" flex gap-[24px] flex-col items-start justify-end px-[20px] md:px-[57px] py-[126px] absolute top-0 left-0 bg-[#00000050] w-full h-full ">
-        <div className="max-w-96 justify-start text-white md:text-3xl text-xl font-light font-['Fraunces']">
+      <div className=" flex gap-[24px] flex-col items-start justify-end px-[20px] md:px-[57px] py-[7%] absolute top-0 left-0 bg-[#00000050] w-full h-full ">
+        <div className="max-w-120 justify-start text-white md:text-3xl text-xl font-light font-['Fraunces']">
           {data?.heroDesc}
         </div>
         <Button href='/contact-us' >CONTACT US</Button>

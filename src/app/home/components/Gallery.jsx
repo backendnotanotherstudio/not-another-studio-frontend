@@ -47,7 +47,7 @@ const Gallery = ({ pageData }) => {
   }
 
   return (
-    <div className=" my-[100px] hidden md:flex flex-col items-center overflow-hidden ">
+    <div className=" my-[100px] max-[1300px]:hidden flex flex-col items-center overflow-hidden ">
       <div className=" flex mx-[100px] gap-[7%] items-start ">
         <Image
           id="image"
