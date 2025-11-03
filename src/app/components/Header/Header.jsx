@@ -1,13 +1,24 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Logo from "./components/Logo";
 import Link from "next/link";
 import Image from "next/image";
 import Line from "./components/Line";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setMobileOpen(false)
+  },[pathname])
+
+
   return (
     <div className=" flex justify-between items-center fixed md:h-[104px] h-[70px] top-0 z-[1000] md:px-[50px] px-[20px] pt-[23px] pb-[22px] md:pt-[42px] md:pb-[41px] w-dvw ">
-      <Line/>
+      <Line />
       <div className=" gap-[67px] md:flex hidden ">
         <Link
           href="/"
@@ -46,8 +57,11 @@ const Header = () => {
         alt="logo"
         src="/images/headerLogo.png"
       />
-      <div className=" flex md:hidden gap-[10px] items-center ">
-        <div className="justify-start text-white text-sm font-medium font-['Inter']">
+      <div
+        onClick={() => setMobileOpen((self) => !self)}
+        className=" flex md:hidden gap-[10px] items-center "
+      >
+        <div className="justify-start select-none text-white text-sm font-medium font-['Inter']">
           MENU
         </div>
         <svg
@@ -86,6 +100,23 @@ const Header = () => {
             strokeLinejoin="round"
           />
         </svg>
+      </div>
+      <div
+        style={{ height: mobileOpen ? '160px' : "0px" }}
+        className=" bg-white absolute w-full transiiton-[height] duration-200 column overflow-hidden top-[70px] left-0 "
+      >
+        <Link href='/' className=" w-full !text-black py-[10px] px-[20px] text-sm font-medium font-['Inter']">
+          HOME
+        </Link>
+        <Link href='/about-us' className=" w-full !text-black py-[10px] px-[20px] text-sm font-medium font-['Inter']">
+          ABOUT
+        </Link>
+        <Link href='/shop' className=" w-full !text-black py-[10px] px-[20px] text-sm font-medium font-['Inter']">
+          SHOP
+        </Link>
+        <Link href='/contact-us' className=" w-full !text-black py-[10px] px-[20px] text-sm font-medium font-['Inter']">
+          CONTACT
+        </Link>
       </div>
     </div>
   );

@@ -1,10 +1,22 @@
 "use client";
 
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const HeroMobile = ({data}) => {
-  const [selected, setSelected] = useState('request');
+let loaded = false;
+
+const HeroMobile = ({ data }) => {
+  const [selected, setSelected] = useState("request");
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    if (!textRef?.current) return;
+    if (!loaded) {
+      loaded = true;
+      return;
+    }
+    textRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [selected]);
 
   return (
     <div className=" md:hidden flex flex-col ">
@@ -24,7 +36,10 @@ const HeroMobile = ({data}) => {
       </div>
       <img className=" w-full object-cover h-full " src="/images/room.jpg" />
       <div className=" w-full p-[20px] pb-[0] relative ">
-        <div className=" w-full overflow-scroll pb-[10px] blockRenderer pr-[10px] h-full ">
+        <div
+          ref={textRef}
+          className=" scroll-m-[90px] w-full overflow-scroll pb-[10px] blockRenderer pr-[10px] h-full "
+        >
           <BlocksRenderer content={data[selected].content} />
         </div>
       </div>

@@ -26,20 +26,3 @@ const Client = ({data}) => {
 };
 
 export default Client;
-
-const exampleData = {
-  gallery: [
-    {
-      url: "/images/placeholder-4.png",
-    },
-    {
-      url: "/images/placeholder-4.png",
-    },
-    {
-      url: "/images/placeholder-4.png",
-    },
-    {
-      url: "/images/placeholder-4.png",
-    },
-  ],
-};
