@@ -35,7 +35,7 @@ const Logo = () => {
     <Image
       onClick={() => (!home && (path !== "/") ? router.push("/") : window.scrollTo({top:0,behavior:'smooth'}))}
       style={{
-        top: `${home ? `40vh` : `${37.5}px`}`,
+        top: `${home ? `37vh` : `${37.5}px`}`,
         width: `${home ? "1310px" : "302px"}`,
         transitionDuration: `${home ? "200ms" : "400ms"}`,
       }}
